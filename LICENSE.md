@@ -1,3 +1,7 @@
+:copyright: Linda C M Sheard, 2022 (CC BY-SA-4.0)
+
+<hr>
+
 ## creative commons
 
 # Attribution-ShareAlike 4.0 International
