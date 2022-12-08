@@ -5,6 +5,7 @@ This repo provides some conceptual illustrations to help understand how to work 
 Topics:
 - [Azure ML Compute Instances](concepts/AzureML-Compute-Instances.md)
 - [Azure ML v2 Entities](concepts/AzureML-v2-workspace-entities.md)
+- [Azure ML Data Access](concepts/AzureML-Data-Access.md)
 - [Provisioning Time vs Runtime](concepts/ProvisioningTime_vs_Runtime.md)
 
 
