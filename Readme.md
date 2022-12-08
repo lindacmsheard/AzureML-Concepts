@@ -10,8 +10,9 @@ Topics:
 
 
 
-### Credits
+<hr>
+
+#### Credits
 > diagrams drawn with apps.diagrams.net
 
-<hr>
-:copyright: Linda C M Sheard, 2022 (CC BY-SA-4.0)
+
