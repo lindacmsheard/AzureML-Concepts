@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: docker-image-plus-conda-example
+# here, we use a curated microsoft image as a base that creates an ubuntu 20.04 environment
+image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
+# Then we add custom conda dependencies
+conda_file: ./conda.yml
+description: Environment created from a Docker image plus Conda environment.

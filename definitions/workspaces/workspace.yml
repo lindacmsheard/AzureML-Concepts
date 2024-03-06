@@ -1,0 +1,10 @@
+$schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
+name: amlv2test2
+location: uksouth
+description: A basic Azure Machine Learning workspace example
+storage_account: "/subscriptions/cf48479b-e351-4599-8588-4867340afcce/resourceGroups/amlv2test346/providers/Microsoft.Storage/storageAccounts/amlv2test346storage"
+tags:
+  purpose: demonstration
+  team: aaai-clinic
+  created: "2021-08-20"
+  

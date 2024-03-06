@@ -1,0 +1,19 @@
+# sample from https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-pipeline?view=azureml-api-2#yaml-inputoutput-dependency
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+display_name: hello_pipeline_io
+jobs:
+  hello_job:
+    outputs:
+      world_output:
+    command: echo "hello" && echo "world" > ${{outputs.world_output}}/world.txt
+    environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+    compute: azureml:cpu-cluster
+
+  world_job:
+    inputs:
+      world_input: ${{parent.jobs.hello_job.outputs.world_output}}
+    command: cat ${{inputs.world_input}}/world.txt
+    environment: azureml:docker-image-plus-conda-example:1
+    compute: azureml:cpu-cluster
+    

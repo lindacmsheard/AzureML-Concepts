@@ -1,0 +1,10 @@
+name: mlflow-starter
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pandas
+  - pip
+  - pip:
+    - azureml-mlflow

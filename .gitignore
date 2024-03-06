@@ -1,0 +1,7 @@
+.ipynb_aml_checkpoints
+.env
+.azure
+.vscode
+
+*amltmp
+

@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: docker-build-example
+build:
+    path: ./docker-context
+    dockerfile_path: Dockerfile
+description: Environment created from a Docker image plus Conda environment.

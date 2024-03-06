@@ -1,0 +1,29 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: |
+  echo ${{inputs.mystr}}
+  echo ${{inputs.myval}}
+  echo ${{inputs.my_priv_data}}
+  ls ${{inputs.my_priv_data}}
+  python mlflow-withdata.py --iris-csv ${{inputs.iris_public}} --my-data ${{inputs.my_priv_data}}
+code: ./src
+environment: 
+  image: continuumio/miniconda3:latest
+  conda_file: ./conda.yml
+compute: azureml:cpu-cluster
+inputs:
+  mystr: "foo"
+  myval: 5
+  iris_public: 
+    path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+    type: uri_file
+  my_priv_data:
+    mode: ro_mount
+    path: azureml://datastores/azuregigdatalake_bronze/paths/geotiff/planet/skysat50cm/
+    type: uri_folder
+  # my_reg_data: 
+  #   mode: ro_mount
+  #   type: uri_folder
+  #   path: azureml:Sentinel-2-Sample-UKnorth:2
+display_name: mlflow-withdata
+experiment_name: mlflow-withdata
+description: Show how to use mlflow logging with data
