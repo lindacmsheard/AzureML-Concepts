@@ -1,0 +1,25 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: |
+  echo ${{inputs.mystr}}
+  echo ${{inputs.myval}}
+  echo ${{inputs.my_priv_data}}
+  ls ${{inputs.my_priv_data}}
+  python mlflow-with-mltable.py --iris-csv ${{inputs.iris_public}} --my-mltable ${{inputs.my_priv_data}}
+code: ./src
+environment: 
+  image: continuumio/miniconda3:latest
+  conda_file: ./conda.yml
+compute: azureml:cpu-cluster
+inputs:
+  mystr: "foo"
+  myval: 5
+  iris_public: 
+    path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+    type: uri_file
+  my_priv_data:
+    mode: ro_mount
+    path: azureml://datastores/azuregigdatalake_bronze/paths/mltables/parquetexample/
+    type: mltable
+display_name: mlflow-with-mltable
+experiment_name: mlflow-with-mltable
+description: Show how to use mlflow logging with data sourced from MLTable
