@@ -1,0 +1,11 @@
+name: hackenv
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python==3.10
+- python-dotenv
+- openai
+- pandas
+- polars
+- pip
