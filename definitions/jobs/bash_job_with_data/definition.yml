@@ -1,0 +1,25 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: ./src
+environment: 
+  image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+compute: azureml:cpu-cluster
+inputs:
+  mystr: "foo"
+  myval: 5
+  my_priv_data:
+    mode: ro_mount
+    path: azureml://datastores/azuregigdatalake_bronze/paths/geotiff/planet/skysat50cm/
+    type: uri_folder
+  # my_reg_data: 
+  #   mode: ro_mount
+  #   type: uri_folder
+  #   path: azureml:Sentinel-2-Sample-UKnorth:2
+command: |
+  echo ${{inputs.mystr}}
+  echo ${{inputs.myval}}
+  echo ${{inputs.my_priv_data}}
+  ls ${{inputs.my_priv_data}}
+  bash script.sh ${{inputs.my_priv_data}}
+display_name: bash-withdata
+experiment_name: bash-withdata
+description: Show how to run bash script on remote compute target

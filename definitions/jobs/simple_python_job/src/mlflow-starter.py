@@ -8,7 +8,7 @@ from random import random
 # define functions
 def main():
     # some other code related to ML
-    mlflow.log_param("my_custom", "my value for Hyosun")
+    mlflow.log_param("my_custom", "my custom parameter value")
     mlflow.log_param("python_version", sys.version)
     mlflow.log_param("hello_param", "world")
     mlflow.log_metric("hello_metric", random())
